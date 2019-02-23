@@ -11,7 +11,7 @@ convenient way to call shell commands from Haskell programs.
 
 ## Usage example
 
-This README contains usage example of the `shellmet` library. The example is
+This README contains the usage example of the `shellmet` library. The example is
 runnable. You can build and execute with the following command:
 
 ```shell
