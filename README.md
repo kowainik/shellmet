@@ -6,7 +6,7 @@
 [![Stackage Lts](http://stackage.org/package/shellmet/badge/lts)](http://stackage.org/lts/package/shellmet)
 [![Stackage Nightly](http://stackage.org/package/shellmet/badge/nightly)](http://stackage.org/nightly/package/shellmet)
 
-Out of the shell solution for scripting in Haskell. Shellmet provides easy and
+Out of the shell solution for scripting in Haskell. Shellmet provides an easy and
 convenient way to call shell commands from Haskell programs.
 
 ## Usage example
