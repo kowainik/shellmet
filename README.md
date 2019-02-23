@@ -1,9 +1,54 @@
 # shellmet
 
+[![Build status](https://secure.travis-ci.org/kowainik/shellmet.svg)](https://travis-ci.org/kowainik/shellmet)
 [![Hackage](https://img.shields.io/hackage/v/shellmet.svg)](https://hackage.haskell.org/package/shellmet)
 [![MPL-2.0 license](https://img.shields.io/badge/license-MPL--2.0-blue.svg)](LICENSE)
 [![Stackage Lts](http://stackage.org/package/shellmet/badge/lts)](http://stackage.org/lts/package/shellmet)
 [![Stackage Nightly](http://stackage.org/package/shellmet/badge/nightly)](http://stackage.org/nightly/package/shellmet)
-[![Build status](https://secure.travis-ci.org/kowainik/shellmet.svg)](https://travis-ci.org/kowainik/shellmet)
 
-Out of the shell solution for scripting in Haskell
+Out of the shell solution for scripting in Haskell. Shellmet provides easy and
+convenient way to call shell commands from Haskell programs.
+
+## Usage example
+
+This README contains usage example of the `shellmet` library. The example is
+runnable. You can build and execute with the following command:
+
+```shell
+cabal new-run readme
+```
+
+### Setting up
+
+Since this tutorial is written using Literate Haskell, first, let's write all
+necessary pragmas and imports.
+
+```haskell
+{-# LANGUAGE OverloadedStrings #-}
+
+import Shellmet (($|))
+
+import qualified Data.Text as T
+```
+
+### Simple scripting example
+
+Below you can see how easy it is to interact with shell commands in Haskell:
+
+```haskell
+main :: IO ()
+main = do
+    "echo" ["Starting shellmet readme..."]
+    text <- "cat" $| ["README.md"]
+    let cnt = T.pack $ show $ length $ T.lines text
+    "echo" ["Number of lines in this README: " <> cnt]
+```
+
+And the output is:
+
+```
+⚙  echo 'Starting shellmet readme...'
+Starting shellmet readme...
+⚙  echo 'Number of lines in this README: 54'
+Number of lines in this README: 54
+```
