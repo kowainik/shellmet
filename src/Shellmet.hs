@@ -4,7 +4,11 @@
 {-# LANGUAGE TypeFamilies      #-}
 
 {- | This module contains neat utilities to be able to work with
-shell commands in generic and simple way using just strings.
+shell commands in generic and simple way using just string literals.
+
+>>> "echo" ["Hello", "World!"]
+⚙  echo Hello 'World!'
+Hello World!
 -}
 
 module Shellmet

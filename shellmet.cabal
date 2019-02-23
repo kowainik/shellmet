@@ -53,6 +53,16 @@ library
                        TypeApplications
                        ViewPatterns
 
+executable readme
+  main-is:             README.lhs
+  build-depends:       base
+                     , shellmet
+                     , text
+
+  build-tool-depends:  markdown-unlit:markdown-unlit
+  ghc-options:         -Wall -pgmL markdown-unlit
+  default-language:    Haskell2010
+
 test-suite shellmet-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
