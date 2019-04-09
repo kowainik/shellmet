@@ -56,7 +56,7 @@ infix 5 $|
 ($|) :: FilePath -> [Text] -> IO Text
 cmd $| args = T.strip . T.pack <$> readProcess cmd (map T.unpack args) ""
 
-{- | Do some IO actions when processed failed with error.
+{- | Do some IO actions when process failed with 'IOError'.
 
 >>> "exit" ["0"] $? putStrLn "Command failed"
 ⚙  exit 0
@@ -66,5 +66,5 @@ cmd $| args = T.strip . T.pack <$> readProcess cmd (map T.unpack args) ""
 Command failed
 -}
 infixl 4 $?
-($?) :: IO () -> IO () -> IO ()
+($?) :: IO a -> IO a -> IO a
 action $? handler = action `catch` \(_ :: IOError) -> handler
