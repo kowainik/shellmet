@@ -16,9 +16,9 @@ matrix:
   include:
   - ghc: 8.2.2
   - ghc: 8.4.4
-  - ghc: 8.6.3
+  - ghc: 8.6.5
 
-  - ghc: 8.6.3
+  - ghc: 8.6.5
     env: STACK_YAML="$TRAVIS_BUILD_DIR/stack.yaml"
 
 install:
@@ -33,15 +33,14 @@ install:
     fi
 
 script:
+  # HLint check
+  - curl -sSL https://raw.github.com/ndmitchell/neil/master/misc/travis.sh | sh -s -- hlint .
   - |
     if [ -z "$STACK_YAML" ]; then
        cabal new-test
     else
       stack build --system-ghc --test --bench --no-run-benchmarks --no-terminal --ghc-options=-Werror
     fi
-
-  # HLint check
-  - curl -sSL https://raw.github.com/ndmitchell/neil/master/misc/travis.sh | sh -s -- hlint .
 
 notifications:
   email: false
