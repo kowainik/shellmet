@@ -1,6 +1,6 @@
 cabal-version:       2.4
 name:                shellmet
-version:             0.0.1
+version:             0.0.2.0
 synopsis:            Out of the shell solution for scripting in Haskell
 description:         Shellmet provides easy and convenient way to call shell commands from Haskell programs
 homepage:            https://github.com/kowainik/shellmet
