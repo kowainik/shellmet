@@ -13,6 +13,7 @@ Hello World!
 
 module Shellmet
        ( ($|)
+       , ($^)
        , ($?)
        ) where
 
@@ -45,6 +46,7 @@ instance (a ~ [Text], b ~ IO ()) => IsString (a -> b) where
         let cmdStr = showCommandForUser cmd (map T.unpack args)
         putStrLn $ "⚙  " ++ cmdStr
         callCommand cmdStr
+    {-# INLINE fromString #-}
 
 {- | Run shell command with given options and return stripped stdout of the
 executed command.
@@ -55,6 +57,18 @@ executed command.
 infix 5 $|
 ($|) :: FilePath -> [Text] -> IO Text
 cmd $| args = T.strip . T.pack <$> readProcess cmd (map T.unpack args) ""
+{-# INLINE ($|) #-}
+
+{- | This operator runs shell command with given options but doesn't print the
+command itself.
+
+>>> "echo" $^ ["Foo", "Bar"]
+Foo Bar
+-}
+infix 5 $^
+($^) :: FilePath -> [Text] -> IO ()
+cmd $^ args = callCommand $ showCommandForUser cmd (map T.unpack args)
+{-# INLINE ($^) #-}
 
 {- | Do some IO actions when process failed with 'IOError'.
 
@@ -68,3 +82,4 @@ Command failed
 infixl 4 $?
 ($?) :: IO a -> IO a -> IO a
 action $? handler = action `catch` \(_ :: IOError) -> handler
+{-# INLINE ($?) #-}
