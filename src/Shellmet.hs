@@ -34,6 +34,7 @@ CHANGELOG.md
 CONTRIBUTING.md
 dist-newstyle
 LICENSE
+README.lhs
 README.md
 shellmet.cabal
 src
