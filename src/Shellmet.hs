@@ -28,17 +28,10 @@ import qualified Data.Text as T
 {- | This instance is needed to provide functionality to call commands by using
 simple string literals in 'IO' monad.
 
->>> "ls" ["-1"]
-⚙  ls -1
-CHANGELOG.md
-CONTRIBUTING.md
-dist-newstyle
-LICENSE
-README.md
-shellmet.cabal
-src
-stack.yaml
-test
+>>> "ls" ["-1", "test"]
+⚙  ls -1 test
+Doctest.hs
+Spec.hs
 -}
 instance (a ~ [Text], b ~ IO ()) => IsString (a -> b) where
     fromString :: String -> [Text] -> IO ()

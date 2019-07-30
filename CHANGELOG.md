@@ -3,6 +3,11 @@
 `shellmet` uses [PVP Versioning][1].
 The changelog is available [on GitHub][2].
 
+## Unreleased
+
+* [#10](https://github.com/kowainik/shellmet/issues/10):
+  Add doctest.
+
 ## 0.0.2.0 — Jul 4, 2019
 
 * [#8](https://github.com/kowainik/shellmet/issues/8):
