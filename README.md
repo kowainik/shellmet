@@ -2,9 +2,9 @@
 
 [![Build status](https://img.shields.io/travis/kowainik/shellmet.svg?logo=travis)](https://travis-ci.org/kowainik/shellmet)
 [![Hackage](https://img.shields.io/hackage/v/shellmet.svg?logo=haskell)](https://hackage.haskell.org/package/shellmet)
-[![MPL-2.0 license](https://img.shields.io/badge/license-MPL--2.0-blue.svg)](LICENSE)
 [![Stackage Lts](http://stackage.org/package/shellmet/badge/lts)](http://stackage.org/lts/package/shellmet)
 [![Stackage Nightly](http://stackage.org/package/shellmet/badge/nightly)](http://stackage.org/nightly/package/shellmet)
+[![MPL-2.0 license](https://img.shields.io/badge/license-MPL--2.0-blue.svg)](LICENSE)
 
 Out of the shell solution for scripting in Haskell. Shellmet provides an easy and
 convenient way to call shell commands from Haskell programs.
@@ -15,7 +15,7 @@ This README contains the usage example of the `shellmet` library. The example is
 runnable. You can build and execute with the following command:
 
 ```shell
-cabal new-run readme
+cabal run readme
 ```
 
 ### Setting up
@@ -26,7 +26,6 @@ necessary pragmas and imports.
 ```haskell
 {-# LANGUAGE OverloadedStrings #-}
 
-import Data.Semigroup ((<>))
 import Shellmet (($|))
 
 import qualified Data.Text as T

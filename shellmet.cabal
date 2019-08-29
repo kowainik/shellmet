@@ -1,6 +1,6 @@
 cabal-version:       2.4
 name:                shellmet
-version:             0.0.2.0
+version:             0.0.3.0
 synopsis:            Out of the shell solution for scripting in Haskell
 description:         Shellmet provides easy and convenient way to call shell commands from Haskell programs
 homepage:            https://github.com/kowainik/shellmet
@@ -14,16 +14,16 @@ category:            Shell, Command Line
 build-type:          Simple
 extra-doc-files:     README.md
                    , CHANGELOG.md
-tested-with:         GHC == 8.2.2
-                     GHC == 8.4.4
+tested-with:         GHC == 8.4.4
                      GHC == 8.6.5
+                     GHC == 8.8.1
 
 source-repository head
   type:                git
   location:            https://github.com/kowainik/shellmet.git
 
 common common-options
-  build-depends:       base >= 4.10.1.0 && < 4.13
+  build-depends:       base >= 4.11 && < 4.14
 
   ghc-options:         -Wall
                        -Wincomplete-uni-patterns
