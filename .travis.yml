@@ -14,22 +14,23 @@ cache:
 
 matrix:
   include:
+  - ghc: 8.2.2
   - ghc: 8.4.4
   - ghc: 8.6.5
   - ghc: 8.8.1
 
-  - ghc: 8.6.5
+  - ghc: 8.8.1
     env: STACK_YAML="$TRAVIS_BUILD_DIR/stack.yaml"
 
 install:
   - |
     if [ -z "$STACK_YAML" ]; then
       cabal update
-      cabal build --enable-tests --enable-benchmarks
+      cabal build --enable-tests --enable-benchmarks --write-ghc-environment-files=always
     else
       curl -sSL https://get.haskellstack.org/ | sh
       stack --version
-      stack build --system-ghc --test --no-run-tests
+      stack build --system-ghc --test --bench --no-run-tests --no-run-benchmarks --no-terminal
     fi
 
 script:
@@ -37,9 +38,9 @@ script:
   - curl -sSL https://raw.github.com/ndmitchell/neil/master/misc/travis.sh | sh -s -- hlint .
   - |
     if [ -z "$STACK_YAML" ]; then
-       cabal test
+       cabal test --enable-tests
     else
-      stack build --system-ghc --test --bench --no-run-benchmarks --no-terminal --ghc-options=-Werror
+      stack test --system-ghc
     fi
 
 notifications:
