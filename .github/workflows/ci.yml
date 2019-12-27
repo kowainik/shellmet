@@ -1,0 +1,32 @@
+name: "CI"
+
+on: [pull_request]
+
+jobs:
+  build:
+    name: ghc-${{ matrix.ghc }}
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        ghc: [ "8.2.2", "8.4.4", "8.6.5", "8.8.1" ]
+        cabal: [ "3.0" ]
+    steps:
+      - uses: actions/checkout@master
+
+      - uses: actions/cache@v1
+        name: Cache ~/.cabal/store
+        with:
+          path: ~/.cabal/store
+          key: ${{ runner.os }}-${{ matrix.ghc }}-cabal-store
+
+      - name: Setup Haskell
+        uses: actions/setup-haskell@v1
+        with:
+          ghc-version: ${{ matrix.ghc }}
+          cabal-version: ${{ matrix.cabal }}
+
+      - name: Build
+        run: |
+          cabal v2-update
+          cabal v2-build --enable-tests --enable-benchmarks --write-ghc-environment-files=always
+          cabal v2-test
