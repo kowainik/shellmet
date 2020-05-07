@@ -3,6 +3,11 @@
 `shellmet` uses [PVP Versioning][1].
 The changelog is available [on GitHub][2].
 
+## 0.0.3.1 — May 7, 2020
+
+* [#18](https://github.com/kowainik/shellmet/issues/18):
+  Support GHC-8.10. Move from GHC-8.8.1 support to GHC-8.8.3.
+
 ## 0.0.3.0 — Sep 28, 2019
 
 * [#10](https://github.com/kowainik/shellmet/issues/10):
