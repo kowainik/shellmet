@@ -1,7 +1,6 @@
 # shellmet
 
 [![GitHub CI](https://github.com/kowainik/shellmet/workflows/CI/badge.svg)](https://github.com/kowainik/shellmet/actions)
-[![Build status](https://img.shields.io/travis/kowainik/shellmet.svg?logo=travis)](https://travis-ci.org/kowainik/shellmet)
 [![Hackage](https://img.shields.io/hackage/v/shellmet.svg?logo=haskell)](https://hackage.haskell.org/package/shellmet)
 [![Stackage Lts](http://stackage.org/package/shellmet/badge/lts)](http://stackage.org/lts/package/shellmet)
 [![Stackage Nightly](http://stackage.org/package/shellmet/badge/nightly)](http://stackage.org/nightly/package/shellmet)

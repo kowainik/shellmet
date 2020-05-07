@@ -3,7 +3,12 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE TypeFamilies      #-}
 
-{- | This module contains neat utilities to be able to work with
+{- |
+Copyright: (c) 2019-2020 Kowainik
+SPDX-License-Identifier: MPL-2.0
+Maintainer: Kowainik <xrom.xkov@gmail.com>
+
+This module contains neat utilities to be able to work with
 shell commands in generic and simple way using just string literals.
 
 >>> "echo" ["Hello", "World!"]
@@ -12,10 +17,10 @@ Hello World!
 -}
 
 module Shellmet
-       ( ($|)
-       , ($^)
-       , ($?)
-       ) where
+    ( ($|)
+    , ($^)
+    , ($?)
+    ) where
 
 import Control.Exception (catch)
 import Data.String (IsString (..))
@@ -31,7 +36,6 @@ simple string literals in 'IO' monad.
 >>> "ls" ["-1", "test"]
 ⚙  ls -1 test
 Doctest.hs
-Spec.hs
 -}
 instance (a ~ [Text], b ~ IO ()) => IsString (a -> b) where
     fromString :: String -> [Text] -> IO ()
