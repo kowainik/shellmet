@@ -40,6 +40,8 @@ common common-options
   if impl(ghc >= 8.8)
     ghc-options:       -Wmissing-deriving-strategies
                        -Werror=missing-deriving-strategies
+  if impl(ghc >= 8.10)
+    ghc-options:       -Wunused-packages
 
   default-language:    Haskell2010
   default-extensions:  ConstraintKinds
