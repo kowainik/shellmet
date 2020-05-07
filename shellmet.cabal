@@ -68,6 +68,8 @@ library
 
 executable readme
   import:              common-options
+  if os(windows)
+    buildable: False
   main-is:             README.lhs
   build-depends:       shellmet
                      , text
