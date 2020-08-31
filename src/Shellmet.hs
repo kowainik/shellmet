@@ -20,6 +20,7 @@ module Shellmet
     ( ($|)
     , ($^)
     , ($?)
+    , isSuccess
     ) where
 
 import Control.Exception (catch)
@@ -80,3 +81,13 @@ infixl 4 $?
 ($?) :: IO a -> IO a -> IO a
 action $? handler = action `catch` \(_ :: IOError) -> handler
 {-# INLINE ($?) #-}
+
+{- | Returns the indicator of if the command succeded or not.
+
+>>> isSuccess $ "echo" ["Hello world!"]
+⚙  echo 'Hello world!'
+Hello world!
+True
+-}
+isSuccess :: IO a -> IO Bool
+isSuccess action = (True <$ action) $? pure False
