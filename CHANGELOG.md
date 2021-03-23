@@ -7,7 +7,9 @@ The changelog is available [on GitHub][2].
 
 * [#20](https://github.com/kowainik/shellmet/issues/20):
   Add `isSuccess` function to show if the command succeded.
-* Upgrade GHC from `8.8.3` to `8.8.4`, `8.10.1` to `8.10.2`.
+* [#25](https://github.com/kowainik/shellmet/issues/25):
+  Support GHC-9.0.
+* Upgrade GHC from `8.8.3` to `8.8.4`, `8.10.1` to `8.10.4`.
 
 ## 0.0.3.1 — May 7, 2020
 
