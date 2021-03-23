@@ -3,7 +3,7 @@
 `shellmet` uses [PVP Versioning][1].
 The changelog is available [on GitHub][2].
 
-## Unreleased
+## 0.0.4.0 — Mar 23, 2021
 
 * [#20](https://github.com/kowainik/shellmet/issues/20):
   Add `isSuccess` function to show if the command succeded.
