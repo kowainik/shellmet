@@ -18,15 +18,16 @@ tested-with:         GHC == 8.2.2
                      GHC == 8.4.4
                      GHC == 8.6.5
                      GHC == 8.8.4
-                     GHC == 8.10.4
-                     GHC == 9.0.1
+                     GHC == 8.10.7
+                     GHC == 9.0.2
+                     GHC == 9.2.2
 
 source-repository head
   type:                git
   location:            https://github.com/kowainik/shellmet.git
 
 common common-options
-  build-depends:       base >= 4.10.1.0 && < 4.16
+  build-depends:       base >= 4.10.1.0 && < 4.17
 
   ghc-options:         -Wall
                        -Wcompat
@@ -65,7 +66,7 @@ library
   exposed-modules:     Shellmet
 
   build-depends:       process ^>= 1.6.1
-                     , text ^>= 1.2.3
+                     , text >= 1.2.3 && < 2.1
 
 executable readme
   import:              common-options
