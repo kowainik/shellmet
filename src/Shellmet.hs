@@ -29,7 +29,7 @@ module Shellmet
 import Control.Exception (catch)
 import Data.String (IsString (..))
 import Data.Text (Text)
-import System.Process (callCommand, readProcess, showCommandForUser)
+import System.Process (callProcess, readProcess, showCommandForUser)
 
 import qualified Data.Text as T
 
@@ -44,9 +44,9 @@ Doctest.hs
 instance (a ~ [Text], b ~ IO ()) => IsString (a -> b) where
     fromString :: String -> [Text] -> IO ()
     fromString cmd args = do
-        let cmdStr = showCommandForUser cmd (map T.unpack args)
-        putStrLn $ "⚙  " ++ cmdStr
-        callCommand cmdStr
+        let argStrs = map T.unpack args
+        putStrLn $ "⚙  " ++ showCommandForUser cmd argStrs
+        callProcess cmd argStrs
     {-# INLINE fromString #-}
 
 {- | Run shell command with given options and return stripped stdout of the
@@ -68,7 +68,7 @@ Foo Bar
 -}
 infix 5 $^
 ($^) :: FilePath -> [Text] -> IO ()
-cmd $^ args = callCommand $ showCommandForUser cmd (map T.unpack args)
+cmd $^ args = callProcess cmd (map T.unpack args)
 {-# INLINE ($^) #-}
 
 {- | Do some IO actions when process failed with 'IOError'.
