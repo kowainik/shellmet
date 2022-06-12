@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macOS-latest]
-        cabal: ["3.6.2"]
+        cabal: ["3.6.2.0"]
         ghc:
           - "8.2.2"
           - "8.4.4"
@@ -25,7 +25,6 @@ jobs:
           - "8.10.7"
           - "9.0.2"
           - "9.2.3"
-
         exclude:
           - os: macOS-latest
             ghc: 9.0.2
@@ -79,38 +78,3 @@ jobs:
       - name: Documentation
         run: |
           cabal haddock
-
-  stack:
-    name: stack / ghc ${{ matrix.ghc }}
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        stack: ["2.7.5"]
-        ghc: ["9.2.3"]
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - uses: haskell/actions/setup@v1
-        name: Setup Haskell Stack
-        with:
-          ghc-version: ${{ matrix.ghc }}
-          stack-version: ${{ matrix.stack }}
-
-      - uses: actions/cache@v3
-        name: Cache ~/.stack
-        with:
-          path: ~/.stack
-          key: ${{ runner.os }}-${{ matrix.ghc }}-stack
-
-      - name: Install dependencies
-        run: |
-          stack build --system-ghc --test --bench --no-run-tests --no-run-benchmarks --only-dependencies
-
-      - name: Build
-        run: |
-          stack build --system-ghc --test --bench --no-run-tests --no-run-benchmarks
-
-      - name: Test
-        run: |
-          stack test --system-ghc
