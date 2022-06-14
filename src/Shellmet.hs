@@ -5,7 +5,7 @@
 
 {- |
 Module                  : Shellmet
-Copyright               : (c) 2019-2021 Kowainik
+Copyright               : (c) 2019-2022 Kowainik
 SPDX-License-Identifier : MPL-2.0
 Maintainer              : Kowainik <xrom.xkov@gmail.com>
 Stability               : Stable
@@ -73,8 +73,9 @@ cmd $^ args = callProcess cmd (map T.unpack args)
 
 {- | Do some IO actions when process failed with 'IOError'.
 
->>> "exit" ["0"] $? putStrLn "Command failed"
-⚙  exit 0
+>>> "echo" ["0"] $? putStrLn "Command failed"
+⚙  echo 0
+0
 
 >>> "exit" ["1"] $? putStrLn "Command failed"
 ⚙  exit 1

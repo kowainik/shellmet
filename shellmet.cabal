@@ -1,6 +1,6 @@
 cabal-version:       2.4
 name:                shellmet
-version:             0.0.4.0
+version:             0.0.4.1
 synopsis:            Out of the shell solution for scripting in Haskell
 description:         Shellmet provides easy and convenient way to call shell commands from Haskell programs
 homepage:            https://github.com/kowainik/shellmet
@@ -9,7 +9,7 @@ license:             MPL-2.0
 license-file:        LICENSE
 author:              Dmitrii Kovanikov
 maintainer:          Kowainik <xrom.xkov@gmail.com>
-copyright:           2019-2021 Kowainik
+copyright:           2019-2022 Kowainik
 category:            Shell, Command Line
 build-type:          Simple
 extra-doc-files:     README.md
@@ -18,15 +18,16 @@ tested-with:         GHC == 8.2.2
                      GHC == 8.4.4
                      GHC == 8.6.5
                      GHC == 8.8.4
-                     GHC == 8.10.4
-                     GHC == 9.0.1
+                     GHC == 8.10.7
+                     GHC == 9.0.2
+                     GHC == 9.2.3
 
 source-repository head
   type:                git
   location:            https://github.com/kowainik/shellmet.git
 
 common common-options
-  build-depends:       base >= 4.10.1.0 && < 4.16
+  build-depends:       base >= 4.10.1.0 && < 4.17
 
   ghc-options:         -Wall
                        -Wcompat
@@ -43,6 +44,11 @@ common common-options
                        -Werror=missing-deriving-strategies
   if impl(ghc >= 8.10)
     ghc-options:       -Wunused-packages
+  if impl(ghc >= 9.0)
+    ghc-options:       -Winvalid-haddock
+  if impl(ghc >= 9.2)
+    ghc-options:       -Wredundant-bang-patterns
+                       -Woperator-whitespace
 
   default-language:    Haskell2010
   default-extensions:  ConstraintKinds
@@ -65,7 +71,7 @@ library
   exposed-modules:     Shellmet
 
   build-depends:       process ^>= 1.6.1
-                     , text ^>= 1.2.3
+                     , text >= 1.2.3 && < 2.1
 
 executable readme
   import:              common-options
