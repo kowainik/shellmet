@@ -26,6 +26,8 @@ necessary pragmas and imports.
 ```haskell
 {-# LANGUAGE OverloadedStrings #-}
 
+import Data.Semigroup ((<>))
+
 import Shellmet (($|))
 
 import qualified Data.Text as T
