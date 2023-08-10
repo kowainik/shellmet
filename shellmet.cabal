@@ -20,14 +20,16 @@ tested-with:         GHC == 8.2.2
                      GHC == 8.8.4
                      GHC == 8.10.7
                      GHC == 9.0.2
-                     GHC == 9.2.3
+                     GHC == 9.2.8
+                     GHC == 9.4.5
+                     GHC == 9.6.2
 
 source-repository head
   type:                git
   location:            https://github.com/kowainik/shellmet.git
 
 common common-options
-  build-depends:       base >= 4.10.1.0 && < 4.17
+  build-depends:       base >= 4.10.1.0 && < 4.19
 
   ghc-options:         -Wall
                        -Wcompat
