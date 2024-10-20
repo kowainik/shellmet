@@ -20,14 +20,18 @@ tested-with:         GHC == 8.2.2
                      GHC == 8.8.4
                      GHC == 8.10.7
                      GHC == 9.0.2
-                     GHC == 9.2.3
+                     GHC == 9.2.8
+                     GHC == 9.4.7
+                     GHC == 9.6.6
+                     GHC == 9.8.2
+                     GHC == 9.10.1
 
 source-repository head
   type:                git
   location:            https://github.com/kowainik/shellmet.git
 
 common common-options
-  build-depends:       base >= 4.10.1.0 && < 4.17
+  build-depends:       base >= 4.10.1.0 && < 4.21
 
   ghc-options:         -Wall
                        -Wcompat
@@ -49,6 +53,13 @@ common common-options
   if impl(ghc >= 9.2)
     ghc-options:       -Wredundant-bang-patterns
                        -Woperator-whitespace
+  if impl(ghc >= 9.4  && < 9.10)
+    ghc-options:       -Wforall-identifier
+  if impl(ghc >= 9.4)
+    ghc-options:       -Wredundant-strictness-flags
+  if impl(ghc >= 9.8)
+    ghc-options:       -Wterm-variable-capture
+                       -Winconsistent-flags
 
   default-language:    Haskell2010
   default-extensions:  ConstraintKinds
@@ -71,7 +82,7 @@ library
   exposed-modules:     Shellmet
 
   build-depends:       process ^>= 1.6.1
-                     , text >= 1.2.3 && < 2.1
+                     , text >= 1.2.3 && < 2.2
 
 executable readme
   import:              common-options
