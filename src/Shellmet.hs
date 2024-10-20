@@ -1,7 +1,11 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
+{-# LANGUAGE CPP               #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE TypeFamilies      #-}
+#if __GLASGOW_HASKELL__ >= 904
+{-# LANGUAGE TypeOperators     #-}
+#endif
 
 {- |
 Module                  : Shellmet
