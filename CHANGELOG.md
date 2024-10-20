@@ -7,6 +7,7 @@ The changelog is available [on GitHub][2].
 
 * Support GHC 9.2.8. 9.4.7, 9.6.6, 9.8.2, 9.10.1.
 * Upgrade `text` from `1.2.3` to `2.0.0`.
+* Remove support of GHC 8.2.2.
 
 ## 0.0.4.1 — Jun 13, 2022
 

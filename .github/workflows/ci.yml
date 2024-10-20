@@ -15,7 +15,6 @@ jobs:
         os: [ubuntu-latest, macOS-latest]
         cabal: ["3.12"]
         ghc:
-          - 8.2.2
           - 8.4.4
           - 8.6.5
           - 8.8.4
@@ -45,8 +44,7 @@ jobs:
             ghc: 8.6.5
           - os: macOS-latest
             ghc: 8.4.4
-          - os: macOS-latest
-            ghc: 8.2.2
+
 
     steps:
       - uses: actions/checkout@v4
