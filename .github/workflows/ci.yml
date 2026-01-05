@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macOS-latest]
-        cabal: ["3.12"]
+        cabal: ["3.14"]
         ghc:
           - 8.4.4
           - 8.6.5
@@ -23,11 +23,14 @@ jobs:
           - 9.2.8
           - 9.4.7
           - 9.6.6
-          - 9.8.2
-          - 9.10.1
+          - 9.8.4
+          - 9.10.3
+          - 9.12.3
         exclude:
           - os: macOS-latest
-            ghc: 9.8.2
+            ghc: 9.10.3
+          - os: macOS-latest
+            ghc: 9.8.4
           - os: macOS-latest
             ghc: 9.6.6
           - os: macOS-latest
@@ -49,7 +52,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: haskell/actions/setup@v2.3
+      - uses: haskell-actions/setup@v2
         id: setup-haskell-cabal
         name: Setup Haskell
         with:
@@ -97,7 +100,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: haskell/actions/setup@v2.3
+      - uses: haskell-actions/setup@v2
         name: Setup Haskell Stack
         with:
           ghc-version: ${{ matrix.ghc }}
