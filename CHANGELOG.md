@@ -3,6 +3,10 @@
 `shellmet` uses [PVP Versioning][1].
 The changelog is available [on GitHub][2].
 
+## 0.0.6.0 — Jan 5, 2026
+
+* Support GHC 9.12.
+
 ## 0.0.5.0 — Oct 20, 2024
 
 * Support GHC 9.2.8. 9.4.7, 9.6.6, 9.8.2, 9.10.1.
